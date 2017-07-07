@@ -30,5 +30,5 @@ server.listen(8080, function() {
 	console.log('Server is running at port 8080')
 })
 
-//在命令行运行程序之后，发现进程不能关，按住ctrl+C，即可退出出进程
+//在命令行运行程序之后，发现进程不能关，按住ctrl+C，即可退出进程
 //在浏览器输入127.0.0.0.1:8080 然后切换回cmd，即可看到有响应
