@@ -16,10 +16,23 @@ var handleRequest = function(request, response) {
 				throw err
 			}
 			//对于发送的响应数据，只能是二进制数据或者字符串
+			response.writeHead(200, {
+				'Content-type': 'text/html'
+			})
 			response.end(data);
 		});
+	} else if(url.startsWith('/static')) {
+		//ES6  startsWith()表示以xxx开头的字符串
+		var staticFilePath = '.' + url;
+		fs.readFile(staticFilePath, function(err, data) {
+			if(err) {
+				response.writeHead(404);
+				response.end(data);
+			}
+			response.end(data);
+		})
+		console.log(request.url)
 	}
-
 }
 
 //2.通过给server实例对象添加request请求事件
